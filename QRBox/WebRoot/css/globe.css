@@ -22,6 +22,7 @@ html,body {
     height: 45px;
 }
 #out-content {
+	padding-top: 1px;
     padding-bottom: 35px;
 }
 #out-content:after {
