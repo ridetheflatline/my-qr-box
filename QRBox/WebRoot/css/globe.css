@@ -1,0 +1,52 @@
+/* CSS file */
+* {
+    margin: 0;
+    padding: 0;
+}
+html,body {
+    height: 100%;
+    text-align: center;
+}
+#wrapper {
+    width: 100%;
+    min-height: 100%;
+    background: #FFF;
+    margin: auto;
+    text-align: left;
+}
+* html #wrapper {
+    height: 100%;
+}
+#header {
+    background-color: #0099FF;
+    height: 45px;
+}
+#out-content {
+    padding-bottom: 35px;
+}
+#out-content:after {
+    clear: both;
+    display: block;
+    content: ".";
+    height: 0;
+    visibility: hidden;
+}
+* html #out-content {
+    height: 1%;
+}
+#content-box {
+    /*float: right;*/
+    width: 100%;
+    background: orange;
+	text-align:center;
+	height:495px;
+}
+#footer {
+    height: 35px;
+    background: #FFF;
+    margin: -35px auto 0;
+} 
+.words {
+    font-size: small;
+}
+
