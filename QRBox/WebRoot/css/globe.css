@@ -36,7 +36,6 @@ html,body {
     height: 1%;
 }
 #content-box {
-    /*float: right;*/
     width: 100%;
     background: orange;
 	text-align:center;
