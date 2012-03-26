@@ -141,6 +141,8 @@ package com.google.zxing.qrcode.decoder
               if (bitsDifference < bestDifference) 
               {
                 bestVersion = i + 7;
+				// modify by wangtao
+				bestDifference = bitsDifference;
               }
             }
             // We can tolerate up to 3 bits of error since no two version info codewords will
