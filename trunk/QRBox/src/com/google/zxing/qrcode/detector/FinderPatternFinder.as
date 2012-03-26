@@ -55,7 +55,8 @@ package com.google.zxing.qrcode.detector
             // image, and then account for the center being 3 modules in size. This gives the smallest
             // number of pixels the center could be, so skip this often. When trying harder, look for all
             // QR versions regardless of how dense they are.
-            var iSkip:int = int(maxI / (MAX_MODULES * 4) * 3);
+			// modify by wangtao
+            var iSkip:int = (maxI * 3) / (MAX_MODULES * 4);
             if (iSkip < MIN_SKIP || tryHarder) {
               iSkip = MIN_SKIP;
             }
@@ -112,11 +113,19 @@ package com.google.zxing.qrcode.detector
                             }
                           }
                         } else {
+							stateCount[0] = stateCount[2];
+							stateCount[1] = stateCount[3];
+							stateCount[2] = stateCount[4];
+							stateCount[3] = 1;
+							stateCount[4] = 0;
+							currentState = 3;
+							continue;
+							// modify by wangtao
                           // Advance to next black pixel
-                          do {
-                            j++;
-                          } while (j < maxJ && !image._get(j,i));
-                          j--; // back up to that last white pixel
+//                          do {
+//                            j++;
+//                          } while (j < maxJ && !image._get(j,i));
+//                          j--; // back up to that last white pixel
                         }
                         // Clear state to start looking again
                         currentState = 0;
@@ -192,6 +201,7 @@ package com.google.zxing.qrcode.detector
               return false;
             }
             var moduleSize:int = (totalModuleSize << INTEGER_MATH_SHIFT) / 7;
+			// modify by wangtao 只有少于50%的差别才算正式点
             var maxVariance:int = moduleSize / 2;
             // Allow less than 50% variance from 1-1-3-1-1 proportions
             return Math.abs(moduleSize - (stateCount[0] << INTEGER_MATH_SHIFT)) < maxVariance &&
