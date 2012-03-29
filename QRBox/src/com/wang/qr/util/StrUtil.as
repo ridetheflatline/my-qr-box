@@ -28,7 +28,7 @@ package com.wang.qr.util {
          * 如果字符串为空，返回默认字符串.
          * @param _s 被判断字符串
          * @param _def 默认值
-         * @return _s为空
+         * @return _s不为空返回其本身，如果_s为空且_def为空，返回null，否则返回_def
          */
         public static function nvl(_s:String, _def:String):String {
             if (isNullStr(_s)) {
