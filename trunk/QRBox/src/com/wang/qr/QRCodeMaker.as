@@ -11,9 +11,7 @@ package com.wang.qr {
     import com.google.zxing.qrcode.QRCodeWriter;
     import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
     import com.google.zxing.qrcode.encoder.QRCode;
-    import com.wang.qr.common.QRResult;
-    import com.wang.qr.model.QRCodeModel;
-    import com.wang.qr.util.StrUtil;
+    import com.wang.util.StrUtil;
     
     import flash.display.BitmapData;
 
@@ -41,7 +39,7 @@ package com.wang.qr {
         public static function buildQRCode():int {
             // 没有内容 
             if (StrUtil.isNullStr(QRCodeModel.getInstance().getCodeContent())) {
-                return QRResult.MSG_ID_MAKE_NO_CONTENT;
+                return QRResult.RESULT_ID_CONTENT_IS_NULL;
             }
             try {
                 var eclTable:HashTable = new HashTable();
@@ -50,16 +48,16 @@ package com.wang.qr {
                     QRCodeModel.getInstance().getCodeContent(), BarcodeFormat.QR_CODE, eclTable);
                 // 创建失败，返回null
                 if (null == qrData) {
-                    return QRResult.MSG_ID_MAKE_NULL;
+                    return QRResult.RESULT_ID_MAKE_QR_NULL;
                 } else {
                     QRCodeModel.getInstance().setCodeData(qrData);
                 }
             } catch (e:Error) {
                 // 创建过程中发生异常
-                return QRResult.MSG_ID_MAKE_EXCEPTION;
+                return QRResult.RESULT_ID_MAKE_QR_EXCEPTION;
             }
             // 创建成功
-            return QRResult.MSG_ID_MAKE_SUCCESS;
+            return QRResult.RESULT_ID_MAKE_QR_SUCCESS;
         }
 
         /**
@@ -70,7 +68,7 @@ package com.wang.qr {
         public static function isCurrectCode(_img:BitmapData):int {
             // 无被检测图像
             if (null == _img) {
-                return QRResult.MSG_ID_CODE_NO_CHECK_IMG;
+                return QRResult.RESULT_ID_READ_QR_NO_IMG;
             }
             try {
                 var lsource:BufferedImageLuminanceSource = new BufferedImageLuminanceSource(_img);
@@ -80,14 +78,14 @@ package com.wang.qr {
                 var result:Result = qrReader.decode(bitmap, codeFormat);
                 if (null == result) {
                     // Code解析失败
-                    return QRResult.MSG_ID_CODE_NO_RESULT;
+                    return QRResult.RESULT_ID_READ_QR_NULL;
                 }
             } catch (e:Error) {
                 // Code解析异常
-                return QRResult.MSG_ID_CODE_CHECK_EXCEPTION;
+                return QRResult.RESULT_ID_READ_QR_EXCEPTION;
             }
             // Code解析成功
-            return QRResult.MSG_ID_CODE_IS_CURRECT;
+            return QRResult.RESULT_ID_READ_QR_IS_OK;
         }
     }
 }
