@@ -59,5 +59,69 @@ package com.wang.util {
             ba.writeUTFBytes(_s);
             return ba.length;
         }
+
+        /**
+         * 判断是否是URL字符串.
+         * @param _s 被判断字符串
+         * @return 以http://或https://开头的字符串认为是URL字符串
+         */
+        public static function isURLStr(_s:String):Boolean {
+            if (isNullStr(_s)) {
+                return false;
+            }
+            var urlRegexp:RegExp = /^((http:\/\/)|(https:\/\/))(\w+(-\w+)*)(\.(\w+(-\w+)*))*(\?\S*)?$/g;
+            return urlRegexp.test(_s);
+        }
+
+        /**
+         * trim操作.
+         * @param _s 被trim字符串
+         * @return trim后字符串
+         */
+        public static function trim(_s:String):String {
+            if (isNullStr(_s)) {
+                return "";
+            }
+            return StringUtil.trim(_s);
+        }
+
+        /**
+         * 判断是否是电话号码或手机号码字符串.
+         * @param _s 被判断字符串
+         * @return true:是;false:不是
+         */
+        public static function isTelStr(_s:String):Boolean {
+            if (isNullStr(_s)) {
+                return false;
+            }
+            var telRegexp:RegExp = /^\+?\d{7,}(-\d+)?$/g;
+            return telRegexp.test(_s);
+        }
+
+        /**
+         * 判断是否是Email字符串.
+         * @param _s 被判断字符串
+         * @return true:是;false:不是
+         */
+        public static function isEmailStr(_s:String):Boolean {
+            if (isNullStr(_s)) {
+                return false;
+            }
+            var telRegexp:RegExp = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/g;
+            return telRegexp.test(_s);
+        }
+
+        /**
+         * 判断是否是Zip字符串.
+         * @param _s 被判断字符串
+         * @return true:是;false:不是
+         */
+        public static function isZipStr(_s:String):Boolean {
+            if (isNullStr(_s)) {
+                return false;
+            }
+            var telRegexp:RegExp = /^\d+$/g;
+            return telRegexp.test(_s);
+        }
     }
 }
