@@ -1,10 +1,15 @@
 package com.wang.qr.util {
+    import flash.utils.ByteArray;
+    
     import mx.utils.StringUtil;
 
     /**
      * 字符串工具类.
      */
     public class StrUtil {
+
+        /** 回车换行. */
+        public static const LINE_SPLIT:String = "\r\n";
 
         /**
          * 构造方法.
@@ -39,6 +44,20 @@ package com.wang.qr.util {
                 }
             }
             return StringUtil.trim(_s);
+        }
+
+        /**
+         * 判断字符串Byte长度.
+         * @param _s 被判断字符串
+         * @return 字符串的Byte长度
+         */
+        public static function bitLen(_s:String):int {
+            if (isNullStr(_s)) {
+                return 0;
+            }
+            var ba:ByteArray = new ByteArray();
+            ba.writeUTFBytes(_s);
+            return ba.length;
         }
     }
 }
