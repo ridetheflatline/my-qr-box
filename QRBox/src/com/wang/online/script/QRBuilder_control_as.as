@@ -141,8 +141,11 @@ protected function createQRCode(event:MouseEvent):void {
     } else if (QRResult.RESULT_ID_CONTENT_IS_NOT_URL == r) {
         Alert.show(QRResult.RESULT_MSG_CONTENT_IS_NOT_URL, "错误");
         return;
-    } else if (QRResult.RESULT_ID_CONTENT_IS_NO_FN_N_MOBILE == r) {
-        Alert.show(QRResult.RESULT_MSG_CONTENT_IS_NO_FN_N_MOBILE, "错误");
+    } else if (QRResult.RESULT_ID_CONTENT_IS_NO_FN_N == r) {
+        Alert.show(QRResult.RESULT_MSG_CONTENT_IS_NO_FN_N, "错误");
+        return;
+    } else if (QRResult.RESULT_ID_CONTENT_IS_NO_MOBILE == r) {
+        Alert.show(QRResult.RESULT_MSG_CONTENT_IS_NO_MOBILE, "错误");
         return;
     } else if (QRResult.RESULT_ID_CONTENT_IS_NOT_MOBILE == r) {
         Alert.show(QRResult.RESULT_MSG_CONTENT_IS_NOT_MOBILE, "错误");
@@ -201,11 +204,14 @@ private function makeTextContent(_txt:String):int {
  */
 private function makeBusinessCardContent(_txt:String):int {
     _txt = null;
-    if (null == this.inputFamilyName || StrUtil.isNullStr(this.inputFamilyName.text)
-        || null == this.inputName || StrUtil.isNullStr(this.inputName.text)
-        || null == this.inputMobile || StrUtil.isNullStr(this.inputMobile.text)) {
-        return QRResult.RESULT_ID_CONTENT_IS_NO_FN_N_MOBILE;
-        // 手机号码格式检查
+    // 姓、名必填一项
+    if ((null == this.inputFamilyName || StrUtil.isNullStr(this.inputFamilyName.text))
+        && (null == this.inputName || StrUtil.isNullStr(this.inputName.text))) {
+        return QRResult.RESULT_ID_CONTENT_IS_NO_FN_N;
+        // 手机号码必填
+    } else if (null == this.inputMobile || StrUtil.isNullStr(this.inputMobile.text)) {
+        return QRResult.RESULT_ID_CONTENT_IS_NO_MOBILE;
+        // 当输入电话号码时，检查电话号码格式
     } else if (!StrUtil.isTelStr(StrUtil.trim(this.inputMobile.text))) {
         return QRResult.RESULT_ID_CONTENT_IS_NOT_MOBILE;
         // 当输入电话号码时，检查电话号码格式
@@ -234,6 +240,14 @@ private function makeBusinessCardContent(_txt:String):int {
         && !StrUtil.isZipStr(StrUtil.trim(this.inputZip.text))) {
         return QRResult.RESULT_ID_CONTENT_IS_NOT_ZIP;
     } else {
+        var cardItems:Array = new Array();
+        if (this.inputVCard.selected) {
+            
+        } else if (this.inputMeCard.selected) {
+            
+        } else {
+            
+        }
         //_txt = this.inputText.text;
     }
     return QRResult.RESULT_ID_CONTENT_IS_OK;
