@@ -1,4 +1,6 @@
-import com.wang.qr.model.PageModel;
+
+
+import com.wang.online.PageModel;
 import com.wang.util.StrUtil;
 
 import flash.events.MouseEvent;

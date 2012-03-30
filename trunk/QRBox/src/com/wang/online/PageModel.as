@@ -1,4 +1,4 @@
-package com.wang.qr.model {
+package com.wang.online {
     /**
      * 页面项目模型.
      */
