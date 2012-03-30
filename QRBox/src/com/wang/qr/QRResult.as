@@ -5,45 +5,91 @@ package com.wang.qr {
      */
     public class QRResult {
 
+        /* 系统信息 */
+        /** 系统异常ID. */
+        public static const SYS_ID_EXCEPTION:int = -1;
+        public static const SYS_MSG_EXCEPTION:String = "系统异常！";
+
+        /* QR码创建消息. */
         /** QR创建处理结果ID 创建成功. */
-        public static const MSG_ID_MAKE_SUCCESS:int = 0;
+        public static const RESULT_ID_MAKE_QR_SUCCESS:int = 1;
         /** QR创建处理结果内容 创建成功. */
-        public static const MSG_STR_MAKE_SUCCESS:String = "QR码创建成功！";
-        
-        /** QR创建处理结果ID 异常 无内容. */
-        public static const MSG_ID_MAKE_NO_CONTENT:int = 1;
-        /** QR创建处理结果内容 异常 无内容. */
-        public static const MSG_STR_MAKE_NO_CONTENT:String = "请先输入QR码的内容！";
+        public static const RESULT_MSG_MAKE_QR_SUCCESS:String = "QR码创建成功！";
         
         /** QR创建处理结果ID 异常 创建过程中异常. */
-        public static const MSG_ID_MAKE_EXCEPTION:int = 2;
+        public static const RESULT_ID_MAKE_QR_EXCEPTION:int = 2;
         /** QR创建处理结果内容 异常 创建过程中异常. */
-        public static const MSG_STR_MAKE_EXCEPTION:String = "QR码创建异常，请重试！";
+        public static const RESULT_MSG_MAKE_QR_EXCEPTION:String = "QR码创建异常，请重试！";
 
         /** QR创建处理结果ID 异常 未能生成QR. */
-        public static const MSG_ID_MAKE_NULL:int = 3;
+        public static const RESULT_ID_MAKE_QR_NULL:int = 3;
         /** QR创建处理结果内容 异常 未能生成QR. */
-        public static const MSG_STR_MAKE_NULL:String = "QR码创建未成功，请重试！";
+        public static const RESULT_MSG_MAKE_QR_NULL:String = "QR码创建未成功，请重试！";
 
-        /** QR测试结果ID 能够正常识别. */
-        public static const MSG_ID_CODE_IS_CURRECT:int = 101;
-        /** QR测试结果内容 能够正常识别. */
-        public static const MSG_STR_CODE_IS_CURRECT:String = "QR码识别正常！";
+        /* QR码解析消息. */
+        /** QR解析结果ID 能够正常识别. */
+        public static const RESULT_ID_READ_QR_IS_OK:int = 101;
+        /** QR解析结果内容 能够正常识别. */
+        public static const RESULT_MSG_READ_QR_IS_OK:String = "QR码识别正常！";
 
-        /** QR测试结果ID 异常 无法正常识别. */
-        public static const MSG_ID_CODE_CHECK_EXCEPTION:int = 102;
-        /** QR测试结果内容 异常 无法正常识别. */
-        public static const MSG_STR_CODE_CHECK_EXCEPTION:String = "QR码无法识别！";
+        /** QR解析结果ID 异常 无法正常识别. */
+        public static const RESULT_ID_READ_QR_EXCEPTION:int = 102;
+        /** QR解析结果内容 异常 无法正常识别. */
+        public static const RESULT_MSG_READ_QR_EXCEPTION:String = "QR码无法识别！";
 
-        /** QR测试结果ID 异常 无被识别图像. */
-        public static const MSG_ID_CODE_NO_CHECK_IMG:int = 103;
-        /** QR测试结果内容 异常 无被识别图像. */
-        public static const MSG_STR_CODE_NO_CHECK_IMG:String = "QR码图像读取失败！";
+        /** QR解析结果ID 异常 无被识别图像. */
+        public static const RESULT_ID_READ_QR_NO_IMG:int = 103;
+        /** QR解析结果内容 异常 无被识别图像. */
+        public static const RESULT_MSG_READ_QR_NO_IMG:String = "QR码图像读取失败！";
 
-        /** QR测试结果ID 异常 无结果. */
-        public static const MSG_ID_CODE_NO_RESULT:int = 104;
-        /** QR测试结果内容 异常 无结果. */
-        public static const MSG_STR_CODE_NO_RESULT:String = "QR码图像解析无内容！";
+        /** QR解析结果ID 异常 空结果. */
+        public static const RESULT_ID_READ_QR_NULL:int = 104;
+        /** QR解析结果内容 异常 空结果. */
+        public static const RESULT_MSG_READ_QR_NULL:String = "QR码图像解析结果为空！";
+
+        /* QR码内容检查消息. */
+        /** QR码内容检查检查结果ID 正常. */
+        public static const RESULT_ID_CONTENT_IS_OK:int = 201;
+
+        /** QR码内容检查结果ID 异常 内容为空. */
+        public static const RESULT_ID_CONTENT_IS_NULL:int = 202;
+        /** QR码内容检查结果ID 异常 内容为空. */
+        public static const RESULT_MSG_CONTENT_IS_NULL:String = "QR码内容不能为空！";
+
+        /** QR码内容检查结果ID 异常 URL内容格式不正确. */
+        public static const RESULT_ID_CONTENT_IS_NOT_URL:int = 203;
+        /** QR码内容检查结果ID 异常 URL内容格式不正确. */
+        public static const RESULT_MSG_CONTENT_IS_NOT_URL:String = "网址必须以http://或https://开始并确定网址格式是否正确！";
+
+        /** QR码内容检查结果ID 异常 名片姓、名、手机内容为空. */
+        public static const RESULT_ID_CONTENT_IS_NO_FN_N_MOBILE:int = 204;
+        /** QR码内容检查结果ID 异常 URL内容格式不正确. */
+        public static const RESULT_MSG_CONTENT_IS_NO_FN_N_MOBILE:String = "名片中，姓、名、手机不能为空！";
+
+        /** QR码内容检查结果ID 异常 手机号码内容不正确. */
+        public static const RESULT_ID_CONTENT_IS_NOT_MOBILE:int = 205;
+        /** QR码内容检查结果ID 异常 手机号码内容不正确. */
+        public static const RESULT_MSG_CONTENT_IS_NOT_MOBILE:String = "手机号码格式不正确！";
+
+        /** QR码内容检查结果ID 异常 电话号码内容不正确. */
+        public static const RESULT_ID_CONTENT_IS_NOT_TEL:int = 206;
+        /** QR码内容检查结果ID 异常 电话号码内容不正确. */
+        public static const RESULT_MSG_CONTENT_IS_NOT_TEL:String = "电话号码格式不正确！";
+
+        /** QR码内容检查结果ID 异常 电话号码内容不正确. */
+        public static const RESULT_ID_CONTENT_IS_NOT_EMAIL:int = 207;
+        /** QR码内容检查结果ID 异常 电话号码内容不正确. */
+        public static const RESULT_MSG_CONTENT_IS_NOT_EMAIL:String = "Email格式不正确！";
+
+        /** QR码内容检查结果ID 异常 传真号码内容不正确. */
+        public static const RESULT_ID_CONTENT_IS_NOT_FAX:int = 208;
+        /** QR码内容检查结果ID 异常 传真号码内容不正确. */
+        public static const RESULT_MSG_CONTENT_IS_NOT_FAX:String = "传真格式不正确！";
+
+        /** QR码内容检查结果ID 异常 邮编号码内容不正确. */
+        public static const RESULT_ID_CONTENT_IS_NOT_ZIP:int = 209;
+        /** QR码内容检查结果ID 异常 邮编号码内容不正确. */
+        public static const RESULT_MSG_CONTENT_IS_NOT_ZIP:String = "邮编格式不正确！";
 
         /** 消息ID. */
         private var msgId:int;
@@ -53,16 +99,10 @@ package com.wang.qr {
 
         /**
          * 构造方法.
-         */
-        public function QRResult() {
-        }
-
-        /**
-         * 构造方法.
          * @param _id 消息ID
          * @param _msg 消息内容
          */
-        public function QRResult(_id:int, _msg:String) {
+        public function QRResult(_id:int=0, _msg:String=null) {
             this.msgId = _id;
             this.msgStr = _msg;
         }
