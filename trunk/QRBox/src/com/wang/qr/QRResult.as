@@ -61,33 +61,38 @@ package com.wang.qr {
         /** QR码内容检查结果ID 异常 URL内容格式不正确. */
         public static const RESULT_MSG_CONTENT_IS_NOT_URL:String = "网址必须以http://或https://开始并确定网址格式是否正确！";
 
-        /** QR码内容检查结果ID 异常 名片姓、名、手机内容为空. */
-        public static const RESULT_ID_CONTENT_IS_NO_FN_N_MOBILE:int = 204;
-        /** QR码内容检查结果ID 异常 URL内容格式不正确. */
-        public static const RESULT_MSG_CONTENT_IS_NO_FN_N_MOBILE:String = "名片中，姓、名、手机不能为空！";
+        /** QR码内容检查结果ID 异常 名片姓、名为空. */
+        public static const RESULT_ID_CONTENT_IS_NO_FN_N:int = 204;
+        /** QR码内容检查结果ID 异常 名片姓、名为空. */
+        public static const RESULT_MSG_CONTENT_IS_NO_FN_N:String = "名片中，姓、名至少填写一项！";
+
+        /** QR码内容检查结果ID 异常 手机内容为空. */
+        public static const RESULT_ID_CONTENT_IS_NO_MOBILE:int = 205;
+        /** QR码内容检查结果ID 异常 手机内容为空. */
+        public static const RESULT_MSG_CONTENT_IS_NO_MOBILE:String = "名片中，手机号码必填！";
 
         /** QR码内容检查结果ID 异常 手机号码内容不正确. */
-        public static const RESULT_ID_CONTENT_IS_NOT_MOBILE:int = 205;
+        public static const RESULT_ID_CONTENT_IS_NOT_MOBILE:int = 206;
         /** QR码内容检查结果ID 异常 手机号码内容不正确. */
         public static const RESULT_MSG_CONTENT_IS_NOT_MOBILE:String = "手机号码格式不正确！";
 
         /** QR码内容检查结果ID 异常 电话号码内容不正确. */
-        public static const RESULT_ID_CONTENT_IS_NOT_TEL:int = 206;
+        public static const RESULT_ID_CONTENT_IS_NOT_TEL:int = 207;
         /** QR码内容检查结果ID 异常 电话号码内容不正确. */
         public static const RESULT_MSG_CONTENT_IS_NOT_TEL:String = "电话号码格式不正确！";
 
         /** QR码内容检查结果ID 异常 电话号码内容不正确. */
-        public static const RESULT_ID_CONTENT_IS_NOT_EMAIL:int = 207;
+        public static const RESULT_ID_CONTENT_IS_NOT_EMAIL:int = 208;
         /** QR码内容检查结果ID 异常 电话号码内容不正确. */
         public static const RESULT_MSG_CONTENT_IS_NOT_EMAIL:String = "Email格式不正确！";
 
         /** QR码内容检查结果ID 异常 传真号码内容不正确. */
-        public static const RESULT_ID_CONTENT_IS_NOT_FAX:int = 208;
+        public static const RESULT_ID_CONTENT_IS_NOT_FAX:int = 209;
         /** QR码内容检查结果ID 异常 传真号码内容不正确. */
         public static const RESULT_MSG_CONTENT_IS_NOT_FAX:String = "传真格式不正确！";
 
         /** QR码内容检查结果ID 异常 邮编号码内容不正确. */
-        public static const RESULT_ID_CONTENT_IS_NOT_ZIP:int = 209;
+        public static const RESULT_ID_CONTENT_IS_NOT_ZIP:int = 210;
         /** QR码内容检查结果ID 异常 邮编号码内容不正确. */
         public static const RESULT_MSG_CONTENT_IS_NOT_ZIP:String = "邮编格式不正确！";
 
