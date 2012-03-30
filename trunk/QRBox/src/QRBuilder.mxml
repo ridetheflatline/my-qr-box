@@ -2,8 +2,7 @@
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
                xmlns:s="library://ns.adobe.com/flex/spark"
                xmlns:mx="library://ns.adobe.com/flex/mx"
-               minWidth="900" minHeight="480" applicationComplete="initPage()">
-
+               minWidth="900" minHeight="480" applicationComplete="initPage()">    
     <fx:Declarations>
         <!-- Place non-visual elements (e.g., services, value objects) here -->
     </fx:Declarations>
@@ -14,17 +13,19 @@
                 <s:NavigatorContent width="100%" height="100%" label="第一步：创建QR码">
 					<s:VGroup width="100%" height="100%" gap="5" verticalAlign="middle" horizontalAlign="center">
                         <s:Group width="100%" height="10%">
-                            <s:DropDownList id="itemInputType" width="90%" height="25" horizontalCenter="0" verticalCenter="0" requireSelection="true" labelField="lbl" change="selectInputType()">
-                                <s:ArrayCollection>
-                                    <fx:Object lbl="网址" val="0"/>
-                                    <fx:Object lbl="文本" val="1"/>
-                                    <fx:Object lbl="名片" val="2"/>
-                                    <fx:Object lbl="日程" val="3"/>
-                                    <fx:Object lbl="短信" val="4"/>
-                                    <fx:Object lbl="彩信" val="5"/>
-                                    <fx:Object lbl="邮件" val="6"/>
-                                    <fx:Object lbl="电话" val="7"/>
-                                </s:ArrayCollection>
+                            <s:DropDownList id="itemInputType" itemRenderer="com.wang.online.renderer.WTDropDownListRenderer" width="90%" height="25" horizontalCenter="0" verticalCenter="0" requireSelection="true" labelField="lbl" change="selectInputType()">
+                                <s:dataProvider>
+                                    <s:ArrayCollection>
+                                        <fx:Object lbl="网址" val="0" icon="com/wang/online/image/input.jpg"/>
+                                        <fx:Object lbl="文本" val="1" icon="com/wang/online/image/input.jpg"/>
+                                        <fx:Object lbl="名片" val="2" icon="com/wang/online/image/input.jpg"/>
+                                        <fx:Object lbl="日程" val="3" icon="com/wang/online/image/input.jpg"/>
+                                        <fx:Object lbl="短信" val="4" icon="com/wang/online/image/input.jpg"/>
+                                        <fx:Object lbl="彩信" val="5" icon="com/wang/online/image/input.jpg"/>
+                                        <fx:Object lbl="邮件" val="6" icon="com/wang/online/image/input.jpg"/>
+                                        <fx:Object lbl="电话" val="7" icon="com/wang/online/image/input.jpg"/>
+                                    </s:ArrayCollection>
+                                </s:dataProvider>
                             </s:DropDownList>
                         </s:Group>
                         <mx:HRule width="90%"/>
@@ -33,12 +34,12 @@
 								<s:NavigatorContent width="100%" height="100%" id="contentURL">
                                     <s:VGroup width="100%" height="100%" gap="5" verticalAlign="middle" horizontalAlign="center">
                                         <s:TextArea id="inputURL" width="90%" height="80%" text="http://"/>
-                                        <s:Label id="inputURLInfo" text="URL需以http://或https://起始" width="90%" height="18%" textAlign="left" color="0xff0000"/>
+                                        <s:Label text="URL需以http://或https://起始" width="90%" height="18%" textAlign="left" color="0xff0000"/>
                                     </s:VGroup>
 								</s:NavigatorContent>
                                 <s:NavigatorContent width="100%" height="100%" id="contentText">
                                     <s:VGroup width="100%" height="100%" gap="5" verticalAlign="middle" horizontalAlign="center">
-                                        <s:TextArea id="inputText" width="90%" height="80%" prompt="输入文本" change="afterInputChanged()"/>
+                                        <s:TextArea id="inputText" width="90%" height="80%" prompt="文本内容，必须的" change="afterInputChanged()"/>
                                         <s:Label id="inputTextLeft" text="information" width="90%" height="18%" textAlign="left"/>
                                     </s:VGroup>
                                 </s:NavigatorContent>
@@ -50,9 +51,9 @@
                                         </s:HGroup>
                                         <s:Scroller width="90%" height="95%" verticalScrollPolicy="auto" horizontalScrollPolicy="off">
                                             <s:VGroup width="100%" horizontalAlign="center">
-                                                <s:TextInput id="inputFamilyName" width="90%" prompt="姓"/>
-                                                <s:TextInput id="inputName" width="90%" prompt="名"/>
-                                                <s:TextInput id="inputMobile" width="90%" prompt="手机"/>
+                                                <s:TextInput id="inputFamilyName" width="90%" prompt="姓，必须的"/>
+                                                <s:TextInput id="inputName" width="90%" prompt="名，必须的"/>
+                                                <s:TextInput id="inputMobile" width="90%" prompt="手机，必须的"/>
                                                 <s:TextInput id="inputEmail" width="90%" prompt="邮箱"/>
                                                 <s:TextInput id="inputTel" width="90%" prompt="电话"/>
                                                 <s:TextInput id="inputORG" width="90%" prompt="公司"/>
@@ -68,9 +69,9 @@
                                 </s:NavigatorContent>
 								<s:NavigatorContent width="100%" height="100%" id="contentCalendar">
                                     <s:VGroup width="100%" height="100%" gap="5" verticalAlign="middle" horizontalAlign="center">
-                                        <s:TextArea id="inputCalTitle" width="90%" height="10%" prompt="标题"/>
-                                        <s:TextArea id="inputCalText" width="90%" height="20%" prompt="备忘内容" change="afterInputChanged()"/>
-                                        <s:Label text="开始时间" width="90%" height="5%" textAlign="left" verticalAlign="middle"/>
+                                        <s:TextArea id="inputCalTitle" width="90%" height="10%" prompt="标题，必须的"/>
+                                        <s:TextArea id="inputCalText" width="90%" height="20%" prompt="备忘内容，必须的" change="afterInputChanged()"/>
+                                        <s:Label text="开始时间(必须)" width="90%" height="5%" textAlign="left" verticalAlign="middle"/>
                                         <mx:DateField id="inputCalDateFrom" width="90%" height="5%" formatString="YYYYMMDD"/>
                                         <s:HGroup width="90%" height="10%" gap="5" horizontalAlign="center" verticalAlign="middle">
                                             <s:NumericStepper id="inputCalHourFrom" minimum="0" maximum="23" stepSize="1" width="30%"/>
@@ -78,7 +79,7 @@
                                             <s:NumericStepper id="inputCalMinFrom" minimum="0" maximum="59" stepSize="1" width="30%"/>
                                             <s:Label text="分" width="90%" />
                                         </s:HGroup>
-                                        <s:Label text="结束时间" width="90%" height="5%" textAlign="left" verticalAlign="middle"/>
+                                        <s:Label text="结束时间(默认同开始时间)" width="90%" height="5%" textAlign="left" verticalAlign="middle"/>
                                         <mx:DateField id="inputCalDateTo" width="90%" height="5%" formatString="YYYYMMDD"/>
                                         <s:HGroup width="90%" height="10%" gap="5" horizontalAlign="center" verticalAlign="middle">
                                             <s:NumericStepper id="inputCalHourTo" minimum="0" maximum="23" stepSize="1" width="30%"/>
@@ -99,7 +100,7 @@
                                     <s:VGroup width="100%" height="100%" gap="5" verticalAlign="middle" horizontalAlign="center">
                                         <s:TextArea id="inputMMSAccount" width="90%" height="10%" prompt="接收人手机号码或邮箱地址"/>
                                         <s:TextArea id="inputMMSMsg" width="90%" height="65%" prompt="要传送的消息"/>
-                                        <s:Label id="inputMMSInfo" text="对于字数没有限制，但过长也会导致无法发送" width="90%" height="18%" textAlign="left" color="0xff0000"/>
+                                        <s:Label text="对于字数没有限制，但过长也会导致无法发送" width="90%" height="18%" textAlign="left" color="0xff0000"/>
                                     </s:VGroup>
                                 </s:NavigatorContent>
                                 <s:NavigatorContent width="100%" height="100%" id="contentEmail">
@@ -113,16 +114,15 @@
                                     <s:VGroup width="100%" height="100%" gap="5" verticalAlign="top" horizontalAlign="center">
                                         <s:TextArea id="inputTelControyNo" width="90%" height="10%" prompt="国家码"/>
                                         <s:TextArea id="inputTelAreaNo" width="90%" height="10%" prompt="区号"/>
-                                        <s:TextArea id="inputTelPhoneNo" width="90%" height="10%" prompt="电话号码"/>
-                                        <s:Label id="inputTelInfo" text="国家码和区号可不填，但对跨省跨国电话是需要的" width="90%" height="18%" textAlign="left" color="0xff0000"/>
+                                        <s:TextArea id="inputTelNo" width="90%" height="10%" prompt="电话号码"/>
+                                        <s:Label text="国家码和区号可不填，但对跨省跨国电话是需要的" width="90%" height="18%" textAlign="left" color="0xff0000"/>
                                     </s:VGroup>
 								</s:NavigatorContent>
-
 							</mx:ViewStack>
                         </s:Group>
                         <mx:HRule width="90%"/>
                         <s:Group width="100%" height="10%">
-                            <s:Button y="40" width="90%" height="20" horizontalCenter="0" verticalCenter="0" label="Create QR"/>
+                            <s:Button y="40" width="90%" height="20" horizontalCenter="0" verticalCenter="0" label="Create QR" click="createQRCode(event)"/>
                         </s:Group>
 					</s:VGroup>
                 </s:NavigatorContent>
