@@ -59,17 +59,17 @@ package com.wang.qr {
         /** QR码内容检查结果ID 异常 URL内容格式不正确. */
         public static const RESULT_ID_CONTENT_IS_NOT_URL:int = 203;
         /** QR码内容检查结果ID 异常 URL内容格式不正确. */
-        public static const RESULT_MSG_CONTENT_IS_NOT_URL:String = "网址必须以http://或https://开始并确定网址格式是否正确！";
+        public static const RESULT_MSG_CONTENT_IS_NOT_URL:String = "网址必须以http://或https://开始并确认网址格式！";
 
         /** QR码内容检查结果ID 异常 名片姓、名为空. */
         public static const RESULT_ID_CONTENT_IS_NO_FN_N:int = 204;
         /** QR码内容检查结果ID 异常 名片姓、名为空. */
-        public static const RESULT_MSG_CONTENT_IS_NO_FN_N:String = "名片中，姓、名至少填写一项！";
+        public static const RESULT_MSG_CONTENT_IS_NO_FN_N:String = "姓、名至少填写一项！";
 
         /** QR码内容检查结果ID 异常 手机内容为空. */
         public static const RESULT_ID_CONTENT_IS_NO_MOBILE:int = 205;
         /** QR码内容检查结果ID 异常 手机内容为空. */
-        public static const RESULT_MSG_CONTENT_IS_NO_MOBILE:String = "名片中，手机号码必填！";
+        public static const RESULT_MSG_CONTENT_IS_NO_MOBILE:String = "手机号码不能为空！";
 
         /** QR码内容检查结果ID 异常 手机号码内容不正确. */
         public static const RESULT_ID_CONTENT_IS_NOT_MOBILE:int = 206;
@@ -95,6 +95,37 @@ package com.wang.qr {
         public static const RESULT_ID_CONTENT_IS_NOT_ZIP:int = 210;
         /** QR码内容检查结果ID 异常 邮编号码内容不正确. */
         public static const RESULT_MSG_CONTENT_IS_NOT_ZIP:String = "邮编格式不正确！";
+
+        /** QR码内容检查结果ID 异常 日历标题为空. */
+        public static const RESULT_ID_CONTENT_IS_NO_CAL_TITLE:int = 211;
+        /** QR码内容检查结果ID 异常 日历标题为空. */
+        public static const RESULT_MSG_CONTENT_IS_NO_CAL_TITLE:String = "标题不能为空！";
+
+        /** QR码内容检查结果ID 异常 日历内容为空. */
+        public static const RESULT_ID_CONTENT_IS_NO_CAL_CONTENT:int = 212;
+        /** QR码内容检查结果ID 异常 日历内容为空. */
+        public static const RESULT_MSG_CONTENT_IS_NO_CAL_CONTENT:String = "内容不能为空！";
+
+        /** QR码内容检查结果ID 异常 日历开始日期为空. */
+        public static const RESULT_ID_CONTENT_IS_NO_CAL_FROMDATE:int = 213;
+        /** QR码内容检查结果ID 异常 日历开始日期为空. */
+        public static const RESULT_MSG_CONTENT_IS_NO_CAL_FROMDATE:String = "开始日期不能为空！";
+
+        /** QR码内容检查结果ID 异常 短信彩信消息内容为空. */
+        public static const RESULT_ID_CONTENT_IS_NO_SMS_MMS_TEXT:int = 214;
+        /** QR码内容检查结果ID 异常 短信彩信消息内容为空. */
+        public static const RESULT_MSG_CONTENT_IS_NO_SMS_MMS_TEXT:String = "消息内容不能为空！";
+
+        
+        /** QR码内容检查结果ID 异常 邮件内容为空. */
+        public static const RESULT_ID_CONTENT_IS_NO_EMAIL_TEXT:int = 215;
+        /** QR码内容检查结果ID 异常 邮件内容为空. */
+        public static const RESULT_MSG_CONTENT_IS_NO_EMAIL_TEXT:String = "邮件内容不能为空！";
+
+        /** QR码内容检查结果ID 异常 电话号码为空. */
+        public static const RESULT_ID_CONTENT_IS_NO_TELNO:int = 216;
+        /** QR码内容检查结果ID 异常 电话号码为空. */
+        public static const RESULT_MSG_CONTENT_IS_NO_TELNO:String = "电话号码不能为空！";
 
         /** 消息ID. */
         private var msgId:int;
