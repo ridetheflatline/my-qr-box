@@ -147,6 +147,7 @@ package com.google.zxing.qrcode.decoder
                   for (var i3:int = 0; i3 < numDataCodewords; i3++)
                   {
                       codewordBytes[i3] = int(codewordsInts[i3]);
+                      // modify by wangtao
                       // Flex : make bytes
                       if (codewordBytes[i3] > 127) { codewordBytes[i3] = (256-codewordBytes[i3])*-1; }
                   }
