@@ -123,5 +123,29 @@ package com.wang.util {
             var telRegexp:RegExp = /^\d+$/g;
             return telRegexp.test(_s);
         }
+
+        /**
+         * 数字转换成字符串并左补齐固定位数.
+         * @param _num 数字
+         * @param _def 补齐字符
+         * @param _len 补齐后总位数
+         * @return 补齐后的字符串
+         */
+        public static function leftPad(_num:Number, _def:String, _len:Number):String {
+            if (isNaN(_num) || isNullStr(_def) || isNaN(_len)) {
+                return "00";
+            }
+            var numStr:Array = new Array();
+            var addCnt:int = _len - _num.toString().length;
+            if (addCnt <= 0) {
+                return _num.toString();
+            } else {
+                for (var i:int = 0; i < addCnt; i++) {
+                    numStr.push(_def);
+                }
+                numStr.push(_num.toString());
+            }
+            return numStr.join("");
+        }
     }
 }
