@@ -13,6 +13,11 @@ package com.wang.qr {
         /** 默认背景色. */
         public static const DEF_BG_COLOR:int = 0xffffff;
 
+        /** 默认每个点的大小. */
+        public static const DEF_DOT_SCALE:int = 5;
+
+        public static const DEF_RADIUS:int = 0;
+
         /** QR描述模型. */
         private static var ins:QRCodeModel = null;
 
@@ -69,5 +74,6 @@ package com.wang.qr {
         public function setCodeData(val:QRCode):void {
             this.codeData = val;
         }
+
     }
 }
