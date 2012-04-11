@@ -14,8 +14,9 @@ package com.wang.qr {
         public static const DEF_BG_COLOR:int = 0xffffff;
 
         /** 默认每个点的大小. */
-        public static const DEF_DOT_SCALE:int = 5;
+        public static const DEF_DOT_SCALE:int = 6;
 
+        /** 默认每个点的圆角. */
         public static const DEF_RADIUS:int = 0;
 
         /** QR描述模型. */
